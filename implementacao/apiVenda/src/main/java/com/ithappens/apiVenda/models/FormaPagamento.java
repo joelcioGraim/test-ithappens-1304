@@ -28,7 +28,7 @@ public class FormaPagamento implements Serializable {
 	/**
 	 * OBS: O atributo deve ser apenas de três formas: A Vista, Boleto ou Cartão
 	 */
-	@Column(length = 7, nullable = false)
+	@Column(length = 7)
 	private String descricao;
 
 	/* ============= Relacionamentos =============== */

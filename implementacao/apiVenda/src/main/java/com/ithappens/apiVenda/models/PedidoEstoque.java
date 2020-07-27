@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -30,12 +31,6 @@ public class PedidoEstoque implements Serializable {
 	@Column(unique = true, name = "idpedidoestoque")
 	private long idPedidoEstoque;
 
-	/**
-	 * OBS: O atributo deve ser apenas de dois tipos: Entrada ou Saída
-	 */
-	@Column(length = 7)
-	private String tipo;
-
 	@Column(name = "valor_total", precision = 10, scale = 2, nullable = false)
 	private BigDecimal valorUnitario;
 
@@ -43,6 +38,10 @@ public class PedidoEstoque implements Serializable {
 	private int quantidade;
 
 	/* ============= Relacionamentos =============== */
+
+	@OneToOne
+	@JoinColumn(name = "idtipopedido", nullable = false)
+	private TipoPedido tipoPedido;
 
 	@ManyToOne
 	@JoinColumn(name = "idfilial", referencedColumnName = "idfilial", nullable = false)
@@ -53,7 +52,7 @@ public class PedidoEstoque implements Serializable {
 	private Usuario usuario;
 
 	@ManyToOne
-	@JoinColumn(name = "idcliente", referencedColumnName = "idcliente", nullable = true)
+	@JoinColumn(name = "idcliente", referencedColumnName = "idcliente", nullable = false)
 	private Cliente cliente;
 
 	@ManyToOne
@@ -73,12 +72,12 @@ public class PedidoEstoque implements Serializable {
 		this.idPedidoEstoque = idPedidoEstoque;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public TipoPedido getTipoPedido() {
+		return tipoPedido;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoPedido(TipoPedido tipoPedido) {
+		this.tipoPedido = tipoPedido;
 	}
 
 	public BigDecimal getValorUnitario() {
