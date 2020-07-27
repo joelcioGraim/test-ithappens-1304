@@ -1,14 +1,12 @@
 package com.ithappens.apiVenda.models;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,21 +25,43 @@ public class Usuario implements Serializable {
 	@Column(unique = true, name = "idusuario")
 	private long idUsuario;
 
-	@Column(length = 150, nullable = false)
+	@Column(length = 150)
 	private String nome;
+	
+	@Column(length = 100)
+	private String login;
+	
+	@Column(length = 8)
+	private String senha;
 
-	@Column(length = 11, nullable = false, unique = true)
+	@Column(length = 11)
 	private String cpf;
 
 	/* ============= Relacionamentos =============== */
 
-	@OneToMany(mappedBy = "usuario")
-	private Set<PedidoEstoque> pedidosEstoque;
+	/*@OneToMany(mappedBy = "usuario")
+	private Set<PedidoEstoque> pedidosEstoque;*/
 	
 	/* ============= Get / Set =============== */
 
 	public long getIdUsuario() {
 		return idUsuario;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public void setIdUsuario(long idUsuario) {
@@ -64,12 +84,12 @@ public class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public Set<PedidoEstoque> getPedidosEstoque() {
+/*	public Set<PedidoEstoque> getPedidosEstoque() {
 		return pedidosEstoque;
 	}
 
 	public void setPedidosEstoque(Set<PedidoEstoque> pedidosEstoque) {
 		this.pedidosEstoque = pedidosEstoque;
 	}
-
+*/
 }

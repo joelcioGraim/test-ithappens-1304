@@ -1,14 +1,12 @@
 package com.ithappens.apiVenda.models;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -47,11 +45,11 @@ public class Filial implements Serializable {
 
 	/* ============= Relacionamentos =============== */
 
-	@OneToMany(mappedBy = "filial")
-	private Set<Estoque> estoques;
+	/*@OneToMany(mappedBy = "filial")
+	private Set<Estoque> estoques;*/
 
-	@OneToMany(mappedBy = "filial")
-	private Set<PedidoEstoque> pedidosEstoque;
+/*	@OneToMany(mappedBy = "filial")
+	private Set<PedidoEstoque> pedidosEstoque;*/
 
 	/* ============= Get / Set =============== */
 
@@ -111,7 +109,7 @@ public class Filial implements Serializable {
 		this.numero = numero;
 	}
 
-	public Set<Estoque> getEstoques() {
+	/*public Set<Estoque> getEstoques() {
 		return estoques;
 	}
 
@@ -125,6 +123,6 @@ public class Filial implements Serializable {
 
 	public void setPedidosEstoque(Set<PedidoEstoque> pedidosEstoque) {
 		this.pedidosEstoque = pedidosEstoque;
-	}
+	}*/
 
 }

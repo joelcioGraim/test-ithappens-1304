@@ -7,6 +7,4 @@ import com.ithappens.apiVenda.models.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	
 	Produto findById(long id);
-
-	Produto findByCode(String id);
 }

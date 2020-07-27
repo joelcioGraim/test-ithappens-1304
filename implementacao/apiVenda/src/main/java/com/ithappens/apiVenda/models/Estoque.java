@@ -2,7 +2,6 @@ package com.ithappens.apiVenda.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /** 
@@ -30,19 +28,19 @@ public class Estoque implements Serializable {
 	@Column(unique = true, name = "idestoque")
 	private long idEstoque;
 
-	@Column(length = 150, nullable = false, unique = true)
+	@Column(length = 150, nullable = false)
 	private String categoria;
 
-	@Column(name = "valor_unitario", precision = 10, scale = 2, nullable = false)
+	@Column(name = "valor_unitario", precision = 10, scale = 2)
 	private BigDecimal valorUnitario;
 
-	@Column(nullable = false)
+	@Column
 	private int quantidade;
 
 	/* ============= Relacionamentos =============== */
 
-	@OneToMany(mappedBy = "estoque")
-	private Set<Produto> produtos;
+	/*@OneToMany(mappedBy = "estoque")
+	private Set<Produto> produtos;*/
 
 	@ManyToOne
 	@JoinColumn(name = "idfilial", referencedColumnName = "idfilial", nullable = false)
@@ -82,13 +80,13 @@ public class Estoque implements Serializable {
 		this.quantidade = quantidade;
 	}
 
-	public Set<Produto> getProdutos() {
+	/*public Set<Produto> getProdutos() {
 		return produtos;
 	}
 
 	public void setProdutos(Set<Produto> produtos) {
 		this.produtos = produtos;
-	}
+	}*/
 
 	public Filial getFilial() {
 		return filial;

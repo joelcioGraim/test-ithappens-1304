@@ -45,7 +45,7 @@ public class PedidoEstoque implements Serializable {
 	/* ============= Relacionamentos =============== */
 
 	@ManyToOne
-	@JoinColumn(name = "filial", referencedColumnName = "filial", nullable = false)
+	@JoinColumn(name = "idfilial", referencedColumnName = "idfilial", nullable = false)
 	private Filial filial;
 
 	@ManyToOne

@@ -1,14 +1,12 @@
 package com.ithappens.apiVenda.models;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,8 +33,8 @@ public class FormaPagamento implements Serializable {
 
 	/* ============= Relacionamentos =============== */
 
-	@OneToMany(mappedBy = "formaPagamento")
-	private Set<PedidoEstoque> pedidosEstoque;
+	/*@OneToMany(mappedBy = "formaPagamento")
+	private Set<PedidoEstoque> pedidosEstoque;*/
 	
 	/* ============= Get / Set =============== */
 
@@ -56,12 +54,12 @@ public class FormaPagamento implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Set<PedidoEstoque> getPedidosEstoque() {
+	/*public Set<PedidoEstoque> getPedidosEstoque() {
 		return pedidosEstoque;
 	}
 
 	public void setPedidosEstoque(Set<PedidoEstoque> pedidosEstoque) {
 		this.pedidosEstoque = pedidosEstoque;
-	}
+	}*/
 
 }
